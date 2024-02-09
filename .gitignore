@@ -1,0 +1,4 @@
+.env
+env/
+.DS_Store
+project_custom_chatgpt_with_langchain_from_scratch.ipynb
