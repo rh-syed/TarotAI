@@ -1,4 +1,6 @@
 .env
 env/
 .DS_Store
+.vscode
+tarot_history.json
 project_custom_chatgpt_with_langchain_from_scratch.ipynb
