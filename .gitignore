@@ -3,4 +3,5 @@ env/
 .DS_Store
 .vscode
 tarot_history.json
+__pycache__/
 project_custom_chatgpt_with_langchain_from_scratch.ipynb
