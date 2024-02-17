@@ -2,6 +2,7 @@ from dotenv import load_dotenv, find_dotenv
 from langchain_openai.chat_models import ChatOpenAI
 from langchain.schema import SystemMessage
 from langchain.chains import LLMChain
+import json
 
 # Memory
 from langchain.memory import ConversationBufferMemory, FileChatMessageHistory
@@ -15,6 +16,25 @@ from langchain.prompts import (
 
 
 load_dotenv(find_dotenv(), override=True)
+
+
+def getQAPairs():
+    qa_pairs = []
+    history = getHistory()
+
+    for item in history:
+        if item["type"] == "human":
+            question = item["data"]["content"]
+        elif item["type"] == "ai":
+            answer = item["data"]["content"]
+            qa_pairs.append((question, answer))
+    return qa_pairs
+
+
+def getHistory():
+    with open("tarot_history.json") as tarot_history:
+        history = json.load(tarot_history)
+    return history
 
 
 def consultTarot(question):
